@@ -1,4 +1,10 @@
+from numpy.core.numeric import NaN
+import numpy as np
+import pandas as pd
+import pickle
 
+from EmailSenders import sendEmails
+from EmailPartitions import emailPartitionsMap, emailFromPartition
 
 def sendEmailsFromDataFrame(
                             df, 

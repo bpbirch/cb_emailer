@@ -1,3 +1,9 @@
+import re 
+import imaplib # imaplib is for reading
+import email 
+from email.header import decode_header
+import pickle
+
 
 
 def bounceBackChecker(

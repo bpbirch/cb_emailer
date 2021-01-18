@@ -1,3 +1,16 @@
+from numpy.core.numeric import NaN
+import pandas as pd
+import numpy as np 
+import time 
+import pickle
+from pymongo import ASCENDING, DESCENDING, MongoClient
+
+from DFmodifers import addDomainsToDataFrame, foundersToListInDataFrame, addEmailsToDataFrame
+from EmpCompDicts import companyDictFromDF
+from EmailSenders import emailJobs
+from BounceBackChecker import bounceBackChecker
+from SendEmailsFromDF import sendEmailsFromDataFrame
+
 
 
 def runMain(
@@ -114,7 +127,7 @@ def runMain(
 
 
                 # change this line back after testing
-                time.sleep(np.random.uniform(180))# rest three minutes to allow delayed bouncebacks to arrive
+                time.sleep(180)# rest three minutes to allow delayed bouncebacks to arrive
 
 
                 bounceBackChecker(
@@ -145,8 +158,8 @@ def runMain(
             db = client.get_database(dbName)
             comps = db.get_collection(collectionName)
             upsertResult = comps.update_one({'location':location}, {'$set':currentDict}, upsert=True)
-            print(f'result from upsert to {collectionName} in {dbName}:')
-            print(upsertResult.raw_result)
+            print(f'result from upsert to {collectionName} in {dbName}: {upsertResult.raw_result}')
+
 
         
         end = time.perf_counter() 

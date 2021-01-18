@@ -1,4 +1,4 @@
-
+import re
 
 def emailCombinations(personName, companyName, domainName):
     """

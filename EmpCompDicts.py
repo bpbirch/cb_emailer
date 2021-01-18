@@ -1,4 +1,4 @@
-
+from EmpCompClasses import Company
 
 def dictFromEmployee(emp):
     """

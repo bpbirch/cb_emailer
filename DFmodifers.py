@@ -1,4 +1,9 @@
-
+from numpy.core.numeric import NaN
+import numpy as np 
+from urllib.parse import urlparse
+from EmailCombos import emailCombinations 
+from EmpCompDicts import dictFromEmployee
+from EmpCompClasses import Employee
 
 def addDomainsToDataFrame(df):
     """

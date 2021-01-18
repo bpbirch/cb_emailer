@@ -1,4 +1,4 @@
-
+import pickle
 
 def addCompanyToNoContacts(newNoContacts, noContactCompanyListPickleFileName='do_not_contact_company_list'):
     """

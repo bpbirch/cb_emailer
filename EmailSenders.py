@@ -1,4 +1,16 @@
+from numpy.core.numeric import NaN
+import numpy as np 
+import smtplib, ssl # smtplib is for writing
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.header import decode_header
+import time
+from urllib.parse import urlparse
+from appscript import app, k # for sending through outlook
+import pickle
 
+from pymongo import ASCENDING, DESCENDING, MongoClient
+from EmailTemplates import emailTextHTML
 
 def sendEmails(
     receiverName,

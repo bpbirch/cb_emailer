@@ -1,38 +1,7 @@
 #%%
 # user defined modules:
-from df_modifers.DFmodifers import addDomainsToDataFrame, foundersToListInDataFrame, addEmailsToDataFrame
-from email_combos.EmailCombos import emailCombinations 
-from employee_company_classes.EmpCompClasses import AttributeRepr, Employee, Company
-from employee_company_dicts.EmpCompDicts import dictFromEmployee, dictFromCompanyClass, companyDictFromDF
-from email_templates.EmailTemplates import emailTextHTML
-from email_senders.EmailSenders import sendEmails, outLookSender, emailJobs
-from email_partitions.EmailPartitions import emailPartitionsMap, emailFromPartition
-from bounceback_checker.BounceBackChecker import bounceBackChecker
-from send_emails_from_df.SendEmailsFromDF import sendEmailsFromDataFrame
-from add_to_no_contact_list.AddToNoContactList import addCompanyToNoContacts
-from main_logic.MainLogic import runMain
+from MainLogic import runMain
 
-# built-ins / external modules
-from numpy.core.numeric import NaN
-import pandas as pd
-import numpy as np 
-import re 
-import smtplib, ssl # smtplib is for writing
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-import imaplib # imaplib is for reading
-import email 
-from email.header import decode_header
-import time
-import re
-import time 
-from urllib.parse import urlparse
-from appscript import app, k # for sending through outlook
-import pickle
-from pprint import pprint
-from bson.json_util import dumps
-import re
-from pymongo import ASCENDING, DESCENDING, MongoClient
 #%%
 if __name__ == '__main__':
     '''
@@ -85,3 +54,4 @@ if __name__ == '__main__':
         returnHTML=returnHTML,
         onlyJobs=onlyJobs
         )
+
