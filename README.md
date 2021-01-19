@@ -8,7 +8,11 @@ The main functionality of this module utilizes a EAFP (Easier to Ask for Forgive
 
 Regarding why pickling is done on some objects / values instead of storing state in a class instance: This program can run for very long periods, and if for some reason outside of our control, the program is halted, I wanted us to be able to pick up where we left of; hence, I'm pickling values that need to be stored between invocations of sendEmailsFromDataFrame and bounceBackChecker.
 
-For longterm persistence, mongoDB / PyMongo is utilized.
+Once an entire dataframe is cycled through, with emails being sent to personnel within those companies, a dictionary
+is implemented with the main key being location that was associated with that dataframe (hence, crunchbase searches 
+should be conducted based on location when utilizing this program). The value for that key is a dictionary whose
+entries are individual companies, which have subdictionaries storing employee info. This dictionary is then 
+added as a document to a collection in mongoDB (for longterm persistence, mongoDB / PyMongo is utilized).
 
 ***
 Notes/Documentation on classes and functions:
