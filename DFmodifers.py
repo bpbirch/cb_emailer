@@ -7,7 +7,7 @@ from EmpCompClasses import Employee
 
 def addDomainsToDataFrame(df):
     """
-    Add a 'Domain' column to new dataframe
+    addDomainsToDataFrame will add a 'Domain' column to new dataframe
 
     Args:
         df (pd.DataFrame): we will copy this DataFrame and return an augmented version with Domain column
@@ -32,7 +32,7 @@ def addDomainsToDataFrame(df):
 
 def foundersToListInDataFrame(df):
     """
-    Converts founders column to list form, since values in that column are originally strings
+    foundersToListInDataFrame converts founders column to list form, since values in that column are originally strings
 
     Args:
         df (pd.DataFrame): dataframe we want to modify

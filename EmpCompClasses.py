@@ -2,7 +2,8 @@
 
 class AttributeRepr():
     """
-    AttributeRepr is a class whose purpose is to make __repr__ pretty for subclasses that inherit from it
+    AttributeRepr is a class whose purpose is to make __repr__ pretty for subclasses that inherit from it.
+    It accesses self.__dict__.itms() to return pairs of attName:attValue
 
     """
     def __repr__(self): 

@@ -76,11 +76,28 @@ def sendEmails(
         with smtplib.SMTP_SSL('smtp.gmail.com', port, context=context) as server:
             # Using with smtplib.SMTP_SSL() as server: makes sure that the connection is automatically closed at the end of the indented code block. If port is zero, or not specified, .SMTP_SSL() will use the standard port for SMTP over SSL (port 465).
             server.login(senderEmail, emailPassword)
-            server.sendmail(senderEmail, 'bryanbaarch@gmail.com', message.as_string())
+            server.sendmail(senderEmail, emailToTry, message.as_string())
             # the above line is how we actually change whom the message is sent to
 
 
 def outLookSender(receiverAddress, receiverName, retainedCompany, companyName, senderName, senderTitle, senderCompany, senderEmail, senderCompanyHomePage, senderPhone, returnHTML=False):
+    """
+    
+    outLookSender is not utilized in this module - but wrote the function in case we want to send from an outlook account in the future
+
+    Args:
+        receiverAddress ([type]): [description]
+        receiverName ([type]): [description]
+        retainedCompany ([type]): [description]
+        companyName ([type]): [description]
+        senderName ([type]): [description]
+        senderTitle ([type]): [description]
+        senderCompany ([type]): [description]
+        senderEmail ([type]): [description]
+        senderCompanyHomePage ([type]): [description]
+        senderPhone ([type]): [description]
+        returnHTML (bool, optional): [description]. Defaults to False.
+    """
     subj = f'Engineers from {retainedCompany} Search'
     if returnHTML:
         [text, html] = emailTextHTML(receiverName, retainedCompany, companyName, senderName, senderTitle, senderCompany, senderEmail, senderCompanyHomePage, senderPhone, returnHTML=returnHTML)

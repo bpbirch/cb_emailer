@@ -39,7 +39,8 @@ def runMain(
     returnHTML=True,
     onlyJobs = True
     ):
-        """[summary]
+        """
+        runMain combines the rest of the functionality in these modules to implement the actual program
 
         Args:
             csvFileName (str): file path name for CSV file that we will convert to pandas company dataframe
