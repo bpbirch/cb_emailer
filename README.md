@@ -1,16 +1,18 @@
 # cb_emailer
-This module utilizes targeted company searches on crunchbase pro to compile a CSV of copmanies, which is then used to contact founders within each company by implementing a series of pandas DataFrames, functions, and dictionaries.
+This module utilizes targeted company searches on crunchbase pro to compile a CSV of copmanies, which is then used to contact founders within each company by implementing a series of pandas DataFrames, functions, classes, and dictionaries. The final product can be used by either recruiters, sales, or job seekers to contact personnel
+within tech companies. A UI needs to be implemented to make the this module client accessible, but the backend
+is completely functional, insofar as we're able to compile a CSV on CrunchBase, derive a pandas dataframe from 
+that CSV, synthesize emails of founders from that dataframe, and then contact those founders with customized emails.
 
 The main functionality of this module utilizes a EAFP (Easier to Ask for Forgiveness than Permission) style, particularly as it pertains to reading from pickled files. So we use Try Except patterns, Trying to read from a pickled file name, and catching the exception and initializing an object to a default value if that file name does not yet exist.
 
-Regarding why pickling is done on some objects / values instead of storing state in a class instance: This program can run for very long periods, and if for some reason outside of our control, the program is halted, I wanted us to be able to 
-pick up where we left of; hence, I'm pickling values that need to be stored between invocations of sendEmailsFromDataFrame and bounceBackChecker.
+Regarding why pickling is done on some objects / values instead of storing state in a class instance: This program can run for very long periods, and if for some reason outside of our control, the program is halted, I wanted us to be able to pick up where we left of; hence, I'm pickling values that need to be stored between invocations of sendEmailsFromDataFrame and bounceBackChecker.
 
 For longterm persistence, mongoDB / PyMongo is utilized.
 
 ***
 Notes/Documentation on classes and functions:
-
+***
     addCompanyToNoContacts is used to add companies not to be contacted to our persistent list
     You can pass either a string form of a company name, or a list of string form company names to be added
     company names are converted to lower case using .lower() so they can be compared with company names that may have incorrect casing in sendEmailsFromDataFrame
