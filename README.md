@@ -4,7 +4,8 @@ within tech companies. A UI needs to be implemented to make the this module clie
 is completely functional, insofar as we're able to compile a CSV on CrunchBase, derive a pandas dataframe from 
 that CSV, synthesize emails of founders from that dataframe, and then contact those founders with customized emails.
 
-The main functionality of this module utilizes a EAFP (Easier to Ask for Forgiveness than Permission) style, particularly as it pertains to reading from pickled files. So we use Try Except patterns, Trying to read from a pickled file name, and catching the exception and initializing an object to a default value if that file name does not yet exist.
+The main functionality of this module utilizes a modified EAFP (Easier to Ask for Forgiveness than Permission) style, particularly as it pertains to reading from pickled files. So we use Try Except patterns, Trying to read from a pickled file name, and catching the exception and initializing an object to a default value if that file name does not yet exist. I say 'modified' because we're not assuming the existence of the pickle files we attempt to read from; rather,
+we assume that they may not exist, and handle that case accordingly. 
 
 Regarding why pickling is done on some objects / values instead of storing state in a class instance: This program can run for very long periods, and if for some reason outside of our control, the program is halted, I wanted us to be able to pick up where we left of; hence, I'm pickling values that need to be stored between invocations of sendEmailsFromDataFrame and bounceBackChecker.
 
